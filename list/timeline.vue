@@ -1,19 +1,19 @@
 <template>
     <ul>
-        <li class="clearfix" v-for="(item, index) in dataList" :key="index">
+        <li class="clearfix" v-for="(item, index) in data" :key="index">
             <div class="point"></div>
             <div class="text">
-                <span class="user">{{item.confirmUserName}}</span>
-                <span class="status">{{item.confirmStatus}}</span>
-                <span class="time">{{new Date(item.confirmTime).format('yyyy/MM/dd hh:mm:ss')}}</span><br>
-                <span class="cause">{{item.confirmCause}}</span>
+                <span v-for="(field, index) in fieldList" :key="index">
+                    <span v-if="field.formatter">{{field.formatter(item[field.name])}}</span>
+                    <span else>{{item[field]}}</span>
+                </span>
             </div>
         </li>
     </ul>
 </template>
 <script>
 export default{
-    props: ['dataList' ]
+    props: ['data', 'fieldList']
 }
 </script>
 <style lang="less" scoped>
