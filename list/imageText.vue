@@ -14,17 +14,17 @@
 </template>
 <script>
   /**
-   * 此组件为商品分类的详情页商品列表开发，由标题、主图、link组成，后续可以继续扩展
+   * 此组件由标题、主图、link组成，可以继续扩展
    * 调用时需要传入prop，用于声明title、link、imageUrl等数据的对应取值字段或maker函数：
    *    prop: {
-   *      data="dialog.detailData"
+   *      data="data"
    *      prop="{
    *        key: 'id',
-   *        title: 'goodsName',
+   *        title: 'text',
    *        link: {
    *          key: 'id',
    *          maker: fragment => {
-   *            return `http://mall.ys7.com/goods/detail?goods_id=${fragment}`;
+   *            return `http://xxx?id=${fragment}`;
    *          }
    *        },
    *        imageUrl: 'imageUrl',
@@ -33,10 +33,10 @@
    *    }
    *    或者
    *    prop: {
-   *      data="dialog.detailData"
+   *      data="data"
    *      prop="{
    *        key: 'id',
-   *        title: 'goodsName',
+   *        title: 'title',
    *        link: 'url',
    *        imageUrl: 'imageUrl',
    *      }"
